@@ -18,10 +18,16 @@ let verified;
 
 // pluginConfig: { orgname: string, publish: bool, tarballDir: string }
 export async function verifyConditions(pluginConfig, context) {
+  
+  if (!pluginConfig.hasOwnProperty('publish')) {
+    pluginConfig.publish = true;
+  }
+
+  // i don't know what this does
   if (context.options.publish) {
     const publishPlugin =
-      castArray(context.options.publish).find((config) => config.path && config.path === "@semantic-release/npm") || {};
-
+      castArray(context.options.publish).find((config) => config.path && config.path === "semantic-release-terraform") || {};
+      console.log(publishPlugin)
     pluginConfig.orgName = defaultTo(pluginConfig.orgName, publishPlugin.orgName);
     pluginConfig.publish = defaultTo(pluginConfig.publish, publishPlugin.publish);
     pluginConfig.tarballDir = defaultTo(pluginConfig.tarballDir, publishPlugin.tarballDir);
