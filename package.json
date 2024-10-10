@@ -1,7 +1,6 @@
 {
   "name": "semantic-release-terraform",
   "description": "semantic-release plugin to publish a terraform module to terraform cloud registry",
-  "version": "0.0.1",
   "author": "Duy Mai",
   "bugs": {
     "url": "https://github.com/zduymz/semantic-release-terraform/issues"
